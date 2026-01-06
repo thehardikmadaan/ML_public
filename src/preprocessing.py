@@ -11,7 +11,7 @@ imputer = SimpleImputer(strategy="median")
 #Ordinal Encoder
 ordinal_encoder = OrdinalEncoder()
 
-#One Hot Encoder
+#One Hot Encoder cat = category
 cat_encoder = OneHotEncoder(sparse_output=False)
 
 #Min max Scaler
