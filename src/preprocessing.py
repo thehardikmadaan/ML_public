@@ -3,6 +3,7 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics.pairwise import rbf_kernel
 
 #Imputer
 imputer = SimpleImputer(strategy="median")
@@ -19,3 +20,6 @@ min_max_scaler = MinMaxScaler(feature_range=(-1,1))
 
 #Standard Scaler
 std_scaler = StandardScaler()
+
+#Rbf Kernel (Similarity)
+#rbf_kernel = rbf_kernel()
