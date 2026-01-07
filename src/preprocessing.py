@@ -25,8 +25,9 @@ min_max_scaler = MinMaxScaler(feature_range=(-1,1))
 std_scaler = StandardScaler()
 
 #Rbf Kernel (Similarity)
-#rbf_kernel = rbf_kernel()
-
+#import and change Y accordingly
+rbf_transformer = FunctionTransformer(rbf_kernel,
+                                      kw_args=dict(Y=[[35.]], gamma=0.1))
 # LOG transformer
 log_transformer = FunctionTransformer(np.log, inverse_func=np.exp)
 
