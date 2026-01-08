@@ -1,3 +1,5 @@
+# only Add Pipeline Transformers to this file
+
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.preprocessing import StandardScaler
