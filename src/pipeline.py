@@ -1,8 +1,8 @@
 # only Add Pipeline Transformers to this file
-
+import numpy as np
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline, make_pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, FunctionTransformer
 
 #First impute than Scale the input
 num_pipeline = make_pipeline(SimpleImputer(strategy="median"), StandardScaler())
