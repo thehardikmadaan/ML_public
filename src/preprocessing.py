@@ -83,7 +83,7 @@ class ClusterSimilarity(BaseEstimator, TransformerMixin):
                               random_state=self.random_state)
         self.kmeans_.fit(X, sample_weight=sample_weight)
         return self  # always return self!
-
+# after training the cluster centers are available with cluster center attribute.
     def transform(self, X):
         return rbf_kernel(X, self.kmeans_.cluster_centers_, gamma=self.gamma)
 
