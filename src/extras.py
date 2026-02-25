@@ -40,3 +40,11 @@ def monkey_patch_get_signature_names_out():
         FunctionTransformer.get_feature_names_out = get_feature_names_out
 
 monkey_patch_get_signature_names_out()
+
+def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
+    plt.plot(thresholds, precisions[:-1], "b--", label="Precision", linewidth=2)
+    plt.plot(thresholds, recalls[:-1], "g-", label="Recall", linewidth=2)
+    plt.legend(loc="center right", fontsize=16)
+    plt.xlabel("Threshold", fontsize=16)
+    plt.grid(True)
+    plt.axis([-50000, 50000, 0, 1])
