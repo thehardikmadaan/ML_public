@@ -1,5 +1,6 @@
 #add extras to this file
-
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 
 def monkey_patch_get_signature_names_out():
     """Monkey patch some classes which did not handle get_feature_names_out()
