@@ -85,3 +85,40 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds, target_p
 
 # Example of how to call this function :
 # plot_precision_recall_vs_threshold(precisions, recalls, thresholds, target_precision=0.90, save_name="precision_recall_vs_threshold_plot")
+
+def plot_precision_vs_recall(precisions, recalls, target_precision=0.90, save_name=None):
+    """
+    Plots the Precision vs. Recall curve and highlights a specific target precision point.
+    """
+    # Create the figure
+    plt.figure(figsize=(8, 6))
+
+    # Plot the main curve
+    plt.plot(recalls[:-1], precisions[:-1], "b-", linewidth=2)
+
+    # Add labels, axis limits, and grid
+    plt.xlabel("Recall", fontsize=16)
+    plt.ylabel("Precision", fontsize=16)
+    plt.axis([0, 1, 0, 1])
+    plt.grid(True)
+
+    # Find the exact recall that matches the target precision
+    # np.argmax finds the first index where precision meets or passes the target
+    idx = np.argmax(precisions >= target_precision)
+    target_recall = recalls[idx]
+
+    # Draw red dotted lines to highlight the specific point
+    plt.plot([target_recall, target_recall], [0., target_precision], "r:")
+    plt.plot([0.0, target_recall], [target_precision, target_precision], "r:")
+
+    # Draw a red dot directly on the curve
+    plt.plot([target_recall], [target_precision], "ro")
+
+    # Save the figure if a save name is provided
+    if save_name:
+        plt.savefig(f"{save_name}.png", bbox_inches="tight")
+
+    # Display the plot
+    plt.show()
+# Example of how to call it:
+# plot_precision_vs_recall(precisions, recalls, target_precision=0.90, save_name="precision_vs_recall_plot")
